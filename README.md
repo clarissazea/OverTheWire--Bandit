@@ -41,6 +41,8 @@ password: sshkey
 
 ## Level 14 --> 15
 
+password: MU4VWeTyJk8ROof1qqmcBPaLh7lDCPvS
+
 ![image](https://github.com/user-attachments/assets/a20a1a89-b0f3-40c0-b1c1-72a8db595834)
 
 
