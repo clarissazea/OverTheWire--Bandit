@@ -17,8 +17,19 @@ File bernama data.txt dapat ditemukan di direktori home. Jika kita melihat isi f
 ```bash
    ssh bandit11@bandit.labs.overthewire.org -p 2220
 ```
+2. Lihat isi file data.txt
+```bash
+cat data.txt
+```
+3. Gunakan perintah `tr` untuk mendekripsi ROT13:
+```bash
+cat data.txt | tr '[A-Za-z]' '[N-ZA-Mn-za-m]'
+```
+4. Password untuk `bandit12`:
+```bash
+7x16WNeHIi5YkIhWsfFIqoognUTyj9Q4
+```
 
-password: 7x16WNeHIi5YkIhWsfFIqoognUTyj9Q4
 ![image](https://github.com/user-attachments/assets/fe95e8bc-2305-4671-b74f-2bbab0051623)
 
 ## Level 12 --> 13
