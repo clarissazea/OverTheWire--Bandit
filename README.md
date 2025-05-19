@@ -47,54 +47,54 @@ ssh bandit12@bandit.labs.overthewire.org -p 2220
 ```
 
 2. Membuat folder dan menyalin `data.txt` ke dalamnya
-```bash
+
 Kita bisa menggunakan perintah `mktemp -d` untuk membuat folder dengan nama acak di /tmp, lalu masuk ke folder tersebut. Setelah itu, salin file data.txt dari home directory (~) ke folder tersebut menggunakan `cp ~ /data.txt .` Titik (.) berarti file disalin ke direktori saat ini. Terakhir, kita rename file tersebut menggunakan mv agar lebih sesuai untuk proses berikutnya.
-```
+
 ![image](https://github.com/user-attachments/assets/8920ba5f-5141-402b-9b94-27fd59fea8f3)
 
 
 3. Rename dan lihat file
-```bash
+
 Kita rename file tersebut menggunakan mv agar lebih sesuai untuk proses berikutnya. Melihat file tersebut, kita melihat format datanya. Seperti yang dinyatakan, ini adalah hexdump. Ini terlihat seperti ini:
-```
+
 ![image](https://github.com/user-attachments/assets/555dfca0-1991-4b16-aec9-78eafb383fe5)
 
 4. Mengembalikan file hasil hexdump
-```bash
+
 Kembali ke hexdump dan mendapatkan data yang sebenarnya (karena ingin beroperasi pada data yang sebenarnya.)
-```
+
 ![image](https://github.com/user-attachments/assets/e0aabfa0-a632-4672-b7ea-5ecc1c02c68f)
 ```bash
-- `xxd`: tool untuk membuat atau membalikkan hexdump.
-- `-r`: reverse, artinya mengubah dari hexdump ke bentuk biner.
-- `hexdump_data`: file input berisi data dalam format hexdump (hasil representasi heksadesimal dari file asli).
-- `compressed_data`: nama file output hasil konversi ke bentuk biner (asli).
+- xxd: tool untuk membuat atau membalikkan hexdump.
+- -r: reverse, artinya mengubah dari hexdump ke bentuk biner.
+- hexdump_data: file input berisi data dalam format hexdump (hasil representasi heksadesimal dari file asli).
+- compressed_data: nama file output hasil konversi ke bentuk biner (asli).
 - Hasilnya adalah file compressed_data, yaitu file asli dalam bentuk biner (yang telah dikompresi berulang kali) dan siap untuk tahap dekompresi.
 ```
 ![image](https://github.com/user-attachments/assets/e4653ab0-6103-421e-9f89-26c3c7d5519a)
 
 5. Proses dekompresi bertahap dari file biner yang sebelumnya dikonversi dari hexdump
-```bash
+
 - `mv compressed_data compressed_data.gz`: file `compressed_data` di-rename menjadi `compressed_data.gz` agar dikenali sebagai file gzip. Ini penting karena kita tidak tahu urutan kompresi yang dilakukan, jadi kita coba satu per satu. .gz adalah salah satu format umum kompresi.
 - `gzip -d compressed_data.gz`: perintah untuk meng-unzip file `.gz`. File `compressed_data.gz` akan didekompres menjadi `compressed_data`.
-```
+
 ![image](https://github.com/user-attachments/assets/cc0765a4-6647-4292-a367-a54500c34f6c)
 
 6. Mengecek jenis kompresi file setelah proses dekompresi pertama.
-```bash
+
 
 `xxd compressed_data` : xxd: digunakan untuk menampilkan hexdump dari sebuah file (menampilkan isi file dalam format heksadesimal + ASCII).
 
 Tujuannya adalah untuk mengidentifikasi format file, berdasarkan magic number (tanda khusus di awal file yang menunjukkan jenis file).
-```
+
 ![image](https://github.com/user-attachments/assets/1437269b-e94e-4bf5-817e-ab57fb335a11)
 
 7. Tahap dekompresi kedua, karena file yang sebelumnya hasil dekompresi `gzip` ternyata berformat `bzip2`, dan kini telah didekompresi menjadi file baru yang siap diperiksa jenis kompresinya selanjutnya.
-```bash
+
 - `mv compressed_data compressed_data.bz2` : Mengubah nama file compressed_data menjadi compressed_data.bz2. Penambahan ekstensi `.bz2` membantu agar sistem atau perintah seperti `bzip2` mengenali dan memproses file dengan benar.
 - `bzip2 -d compressed_data.bz2` : bzip2 -d adalah perintah untuk mendekompresi file berekstensi .bz2 (mengembalikan ke bentuk aslinya).
 - Setelah perintah ini dijalankan, file `compressed_data.bz2` akan hilang dan digantikan oleh file bernama `compressed_data` yang telah didekompresi.
-```
+
 ![image](https://github.com/user-attachments/assets/f0ae242d-2a91-4696-9a21-5af324971b84)
 
 
@@ -126,10 +126,12 @@ Dengan mengekstraknya, kita melanjutkan proses membuka lapisan-lapisan kompresi 
 13. Proses dekompresi terakhir
 
 Setelah melalui berbagai tahapan ekstraksi dan dekompresi (gzip, bzip2, tar, dsb.), akhirnya diperoleh file teks `data8` yang berisi password untuk login ke level bandit13.
-
+```bash
 - `mv data8.bin data8.gz`: Mengganti nama file ke ekstensi `.gz` agar formatnya dikenali dengan lebih jelas sebagai gzip.
 - `gzip -d data8.gz`: Menghapus kompresi gzip dari file tersebut. Setelah didekompresi, file baru bernama `data8` akan muncul.
-- `cat data8`: Isi file data8 ternyata adalah password 
+- `cat data8`: Isi file data8 ternyata adalah password
+```
+
 ![image](https://github.com/user-attachments/assets/55fb1246-f404-4b7c-b5be-62883940e43e)
 
 14. Password untuk `bandit13`:
