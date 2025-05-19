@@ -47,6 +47,7 @@ ssh bandit12@bandit.labs.overthewire.org -p 2220
 ```
 
 2. Membuat folder dan menyalin `data.txt` ke dalamnya
+
 Kita bisa menggunakan perintah mktemp -d untuk membuat folder dengan nama acak di /tmp, lalu masuk ke folder tersebut. Setelah itu, salin file data.txt dari home directory (~) ke folder tersebut menggunakan cp ~ /data.txt .. Titik (.) berarti file disalin ke direktori saat ini. Terakhir, kita rename file tersebut menggunakan mv agar lebih sesuai untuk proses berikutnya.
 
 ![image](https://github.com/user-attachments/assets/8920ba5f-5141-402b-9b94-27fd59fea8f3)
