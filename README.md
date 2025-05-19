@@ -208,7 +208,30 @@ nc localhost 30000
 
 
 ## Level 15 --> 16
-8xCjnmgoKbGLhHFAZlGE5Tmu4M2tKJQo
+- Username: bandit15
+- Password (dari level sebelumnya): Diperoleh dari level 14 (`8xCjnmgoKbGLhHFAZlGE5Tmu4M2tKJQo`)
+- Tujuan: Mendapatkan password untuk login ke user bandit16 dengan mengirim password level sekarang ke port 30001 di localhost menggunakan enkripsi SSL
+- Lokasi file: Tidak ada file khusus, menggunakan koneksi SSL ke port 30001
+
+1. Login ke level 15
+```bash
+ssh bandit15@bandit.labs.overthewire.org -p 2220
+```
+
+2. Membuat koneksi SSL ke server lokal di port 30001
+```bash
+openssl s_client -ign_eof -connect localhost:30001
+```
+Perintah openssl s_client digunakan untuk membuat koneksi SSL (secure socket layer) ke alamat dan port tertentu, dalam hal ini ke localhost:30001.
+
+- `-connect localhost:30001`: Menghubungkan ke localhost pada port 30001
+- `-ign_eof`: Mengabaikan EOF (End of File) agar koneksi tetap terbuka meskipun input sudah selesai, mencegah error “HEARTBEATING” atau “Read R BLOCK” yang muncul saat komunikasi SSL.
+
+3. Password untuk `bandit16`:
+```bash
+kSkvUpMQ7lBYyCM4GBPvCvT1BfWRy0Dx
+```
+
 ![image](https://github.com/user-attachments/assets/86e5c02e-3292-4be3-8822-efd2ac253c6c)
 ![image](https://github.com/user-attachments/assets/e0ae7633-1546-4632-9d73-197b77c54b71)
 
