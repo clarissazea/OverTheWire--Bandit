@@ -1,5 +1,6 @@
 # Write Up OverTheWire - Bandit
-
+By Clarissa Aydin Rahmazea
+5027241014
 
 ## Level 11 --> 12
 - Username: bandit11
