@@ -91,20 +91,20 @@ Tujuannya adalah untuk mengidentifikasi format file, berdasarkan magic number (t
 - `bzip2 -d compressed_data.bz2` : bzip2 -d adalah perintah untuk mendekompresi file berekstensi .bz2 (mengembalikan ke bentuk aslinya).
 
 Setelah perintah ini dijalankan, file compressed_data.bz2 akan hilang dan digantikan oleh file bernama compressed_data yang telah didekompresi.
-
+![image](https://github.com/user-attachments/assets/f0ae242d-2a91-4696-9a21-5af324971b84)
 
 
 8. Proses dekompresi ketiga, karena file hasil sebelumnya ternyata masih berupa gzip. Proses rename dan dekompresi diulang agar file bisa diakses lebih lanjut.
-
+![image](https://github.com/user-attachments/assets/17dd5d6e-20bd-4455-b0bf-3bee278dffd1)
 
 9. Menampilkan seluruh isi file `compressed_data`
 
 `xxd compressed_data | head`: xxd mengubah file biner menjadi format heksadesimal dan karakter ASCII agar bisa dibaca. Head membatasi output hanya pada 10 baris pertama, sehingga hasil tidak tertampil isi file panjang.
-![image](https://github.com/user-attachments/assets/f0ae242d-2a91-4696-9a21-5af324971b84)
-
-
-![image](https://github.com/user-attachments/assets/17dd5d6e-20bd-4455-b0bf-3bee278dffd1)
 ![image](https://github.com/user-attachments/assets/b7f286a3-8106-4289-92b7-8ac6c30d109c)
+
+
+
+
 
 ![image](https://github.com/user-attachments/assets/a2345821-8e73-4fcf-9660-9558af50078d)
 ![image](https://github.com/user-attachments/assets/90222ece-ce83-49e9-a272-caabb64d0c51)
