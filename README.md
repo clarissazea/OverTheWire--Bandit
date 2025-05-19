@@ -74,12 +74,16 @@ Namun, kami ingin beroperasi pada data yang sebenarnya. Oleh karena itu, kami ke
 - `mv compressed_data compressed_data.gz`: file compressed_data di-rename menjadi compressed_data.gz agar dikenali sebagai file gzip. Ini penting karena kita tidak tahu urutan kompresi yang dilakukan, jadi kita coba satu per satu. .gz adalah salah satu format umum kompresi.
 - `gzip -d compressed_data.gz`: perintah untuk meng-unzip file `.gz`. File `compressed_data.gz` akan didekompres menjadi `compressed_data`.
 
+![image](https://github.com/user-attachments/assets/cc0765a4-6647-4292-a367-a54500c34f6c)
+
 6. Mengecek jenis kompresi file setelah proses dekompresi pertama.
 
-![image](https://github.com/user-attachments/assets/cc0765a4-6647-4292-a367-a54500c34f6c)
+
 `xxd compressed_data` : xxd: digunakan untuk menampilkan hexdump dari sebuah file (menampilkan isi file dalam format heksadesimal + ASCII).
 
 Tujuannya adalah untuk mengidentifikasi format file, berdasarkan magic number (tanda khusus di awal file yang menunjukkan jenis file).
+
+![image](https://github.com/user-attachments/assets/1437269b-e94e-4bf5-817e-ab57fb335a11)
 
 7. Tahap dekompresi kedua, karena file yang sebelumnya hasil dekompresi gzip ternyata berformat bzip2, dan kini telah didekompresi menjadi file baru yang siap diperiksa jenis kompresinya selanjutnya.
 
@@ -88,8 +92,10 @@ Tujuannya adalah untuk mengidentifikasi format file, berdasarkan magic number (t
 
 Setelah perintah ini dijalankan, file compressed_data.bz2 akan hilang dan digantikan oleh file bernama compressed_data yang telah didekompresi.
 
+
+
 8. Proses dekompresi ketiga, karena file hasil sebelumnya ternyata masih berupa gzip. Proses rename dan dekompresi diulang agar file bisa diakses lebih lanjut.
-![image](https://github.com/user-attachments/assets/1437269b-e94e-4bf5-817e-ab57fb335a11)
+
 
 9. Menampilkan seluruh isi file `compressed_data`
 
