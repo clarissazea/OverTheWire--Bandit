@@ -51,10 +51,21 @@ ssh bandit12@bandit.labs.overthewire.org -p 2220
 Kita bisa menggunakan perintah mktemp -d untuk membuat folder dengan nama acak di /tmp, lalu masuk ke folder tersebut. Setelah itu, salin file data.txt dari home directory (~) ke folder tersebut menggunakan `cp ~ /data.txt .` Titik (.) berarti file disalin ke direktori saat ini. Terakhir, kita rename file tersebut menggunakan mv agar lebih sesuai untuk proses berikutnya.
 
 ![image](https://github.com/user-attachments/assets/8920ba5f-5141-402b-9b94-27fd59fea8f3)
+
+3. Rename dan lihat file
+
+Kita rename file tersebut menggunakan mv agar lebih sesuai untuk proses berikutnya. Melihat file tersebut, kita melihat format datanya. Seperti yang dinyatakan, ini adalah hexdump. Ini terlihat seperti ini:
 ![image](https://github.com/user-attachments/assets/555dfca0-1991-4b16-aec9-78eafb383fe5)
 
-
+4. Mengembalikan file hasil hexdump
+Namun, kami ingin beroperasi pada data yang sebenarnya. Oleh karena itu, kami kembali ke hexdump dan mendapatkan data yang sebenarnya.
 ![image](https://github.com/user-attachments/assets/e0aabfa0-a632-4672-b7ea-5ecc1c02c68f)
+- xxd: tool untuk membuat atau membalikkan hexdump.
+- -r: reverse, artinya mengubah dari hexdump ke bentuk biner.
+- hexdump_data: file input berisi data dalam format hexdump (hasil representasi heksadesimal dari file asli).
+- compressed_data: nama file output hasil konversi ke bentuk biner (asli).
+- Hasilnya adalah file compressed_data, yaitu file asli dalam bentuk biner (yang telah dikompresi berulang kali) dan siap untuk tahap dekompresi.
+
 ![image](https://github.com/user-attachments/assets/e4653ab0-6103-421e-9f89-26c3c7d5519a)
 
 
