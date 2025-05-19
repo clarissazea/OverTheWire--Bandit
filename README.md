@@ -102,11 +102,18 @@ Setelah perintah ini dijalankan, file compressed_data.bz2 akan hilang dan digant
 `xxd compressed_data | head`: xxd mengubah file biner menjadi format heksadesimal dan karakter ASCII agar bisa dibaca. Head membatasi output hanya pada 10 baris pertama, sehingga hasil tidak tertampil isi file panjang.
 ![image](https://github.com/user-attachments/assets/b7f286a3-8106-4289-92b7-8ac6c30d109c)
 
+10. Menangani file yang ternyata adalah arsip `.tar`. Dengan mengganti nama dan mengekstraknya, kita mendapatkan file baru `(data5.bin)` yang kemungkinan masih harus diproses lebih lanjut.
 
+- `tar -xf compressed_data.tar`: Perintah ini digunakan untuk mengekstrak isi arsip tar.`-x`: extract, `-f`: menggunakan file `(compressed_data.tar)`
+-  File `data5.bin` muncul, artinya proses ekstraksi berhasil.
+-  `tar -xf data5.bin`: Perintah ini digunakan untuk mengekstrak file `data5.bin` yang ternyata merupakan arsip tar lainnya, meskipun tidak memiliki ekstensi `.tar`.
 
+Dengan mengekstraknya, kita melanjutkan proses membuka lapisan-lapisan kompresi sampai akhirnya menemukan password level berikutnya.
 
-
+11. File `data6.bin` tampaknya telah dikompresi `bzip2` lagi.
 ![image](https://github.com/user-attachments/assets/a2345821-8e73-4fcf-9660-9558af50078d)
+
+12. `data6.bin.out` menunjukkan nama file lain `data8.bin` lagi. Jadi kita mengekstrak file ini.
 ![image](https://github.com/user-attachments/assets/90222ece-ce83-49e9-a272-caabb64d0c51)
 
 
