@@ -236,8 +236,8 @@ Perintah openssl s_client digunakan untuk membuat koneksi SSL (secure socket lay
 ```bash
 kSkvUpMQ7lBYyCM4GBPvCvT1BfWRy0Dx
 ```
+![image](https://github.com/user-attachments/assets/a14a59ec-5e24-47b2-8bae-9b87f7c7b07c)
 
-![image](https://github.com/user-attachments/assets/86e5c02e-3292-4be3-8822-efd2ac253c6c)
-![image](https://github.com/user-attachments/assets/e0ae7633-1546-4632-9d73-197b77c54b71)
+![image](https://github.com/user-attachments/assets/fc99f597-b604-483b-a73c-0632be0b6aa5)
 
 
