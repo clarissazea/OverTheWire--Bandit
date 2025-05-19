@@ -117,13 +117,22 @@ Dengan mengekstraknya, kita melanjutkan proses membuka lapisan-lapisan kompresi 
 
 12. `data6.bin.out` menunjukkan nama file lain `data8.bin` lagi. Jadi kita mengekstrak file ini.
 
-
-
 ![image](https://github.com/user-attachments/assets/95db42e6-ef24-4664-bc43-0074345a464f)
+
+13. Proses dekompresi terakhir
+
+Setelah melalui berbagai tahapan ekstraksi dan dekompresi (gzip, bzip2, tar, dsb.), akhirnya diperoleh file teks `data8` yang berisi password untuk login ke level bandit13.
+
+- `mv data8.bin data8.gz`: Mengganti nama file ke ekstensi `.gz` agar formatnya dikenali dengan lebih jelas sebagai gzip.
+- `gzip -d data8.gz`: Menghapus kompresi gzip dari file tersebut. Setelah didekompresi, file baru bernama `data8` akan muncul.
+- `cat data8`: Isi file data8 ternyata adalah password 
 ![image](https://github.com/user-attachments/assets/55fb1246-f404-4b7c-b5be-62883940e43e)
 
+14. Password untuk `bandit13`:
+```bash
+FO5dwFsc0cbaIiH0h8J2eUks2vdTDwAn
+```
 
-password: FO5dwFsc0cbaIiH0h8J2eUks2vdTDwAn
 ## Level 13 --> 14
 password: sshkey
 
