@@ -61,21 +61,39 @@ Kita rename file tersebut menggunakan mv agar lebih sesuai untuk proses berikutn
    
 Namun, kami ingin beroperasi pada data yang sebenarnya. Oleh karena itu, kami kembali ke hexdump dan mendapatkan data yang sebenarnya.
 ![image](https://github.com/user-attachments/assets/e0aabfa0-a632-4672-b7ea-5ecc1c02c68f)
-- xxd: tool untuk membuat atau membalikkan hexdump.
-- -r: reverse, artinya mengubah dari hexdump ke bentuk biner.
-- hexdump_data: file input berisi data dalam format hexdump (hasil representasi heksadesimal dari file asli).
-- compressed_data: nama file output hasil konversi ke bentuk biner (asli).
+- `xxd`: tool untuk membuat atau membalikkan hexdump.
+- `-r`: reverse, artinya mengubah dari hexdump ke bentuk biner.
+- `hexdump_data`: file input berisi data dalam format hexdump (hasil representasi heksadesimal dari file asli).
+- `compressed_data`: nama file output hasil konversi ke bentuk biner (asli).
 - Hasilnya adalah file compressed_data, yaitu file asli dalam bentuk biner (yang telah dikompresi berulang kali) dan siap untuk tahap dekompresi.
 
 ![image](https://github.com/user-attachments/assets/e4653ab0-6103-421e-9f89-26c3c7d5519a)
 
-5. Ketika dilihat file data aslinya
+5. Proses dekompresi bertahap dari file biner yang sebelumnya dikonversi dari hexdump
+
+- `mv compressed_data compressed_data.gz`: file compressed_data di-rename menjadi compressed_data.gz agar dikenali sebagai file gzip. Ini penting karena kita tidak tahu urutan kompresi yang dilakukan, jadi kita coba satu per satu. .gz adalah salah satu format umum kompresi.
+- `gzip -d compressed_data.gz`: perintah untuk meng-unzip file `.gz`. File `compressed_data.gz` akan didekompres menjadi `compressed_data`.
+
+6. Mengecek jenis kompresi file setelah proses dekompresi pertama.
 
 ![image](https://github.com/user-attachments/assets/cc0765a4-6647-4292-a367-a54500c34f6c)
+`xxd compressed_data` : xxd: digunakan untuk menampilkan hexdump dari sebuah file (menampilkan isi file dalam format heksadesimal + ASCII).
 
-6. 
+Tujuannya adalah untuk mengidentifikasi format file, berdasarkan magic number (tanda khusus di awal file yang menunjukkan jenis file).
+
+7. Tahap dekompresi kedua, karena file yang sebelumnya hasil dekompresi gzip ternyata berformat bzip2, dan kini telah didekompresi menjadi file baru yang siap diperiksa jenis kompresinya selanjutnya.
+
+- `mv compressed_data compressed_data.bz2` : Mengubah nama file compressed_data menjadi compressed_data.bz2. Penambahan ekstensi `.bz2` membantu agar sistem atau perintah seperti `bzip2` mengenali dan memproses file dengan benar.
+- `bzip2 -d compressed_data.bz2` : bzip2 -d adalah perintah untuk mendekompresi file berekstensi .bz2 (mengembalikan ke bentuk aslinya).
+
+Setelah perintah ini dijalankan, file compressed_data.bz2 akan hilang dan digantikan oleh file bernama compressed_data yang telah didekompresi.
+
+8. Proses dekompresi ketiga, karena file hasil sebelumnya ternyata masih berupa gzip. Proses rename dan dekompresi diulang agar file bisa diakses lebih lanjut.
 ![image](https://github.com/user-attachments/assets/1437269b-e94e-4bf5-817e-ab57fb335a11)
 
+9. Menampilkan seluruh isi file `compressed_data`
+
+`xxd compressed_data | head`: xxd mengubah file biner menjadi format heksadesimal dan karakter ASCII agar bisa dibaca. Head membatasi output hanya pada 10 baris pertama, sehingga hasil tidak tertampil isi file panjang.
 ![image](https://github.com/user-attachments/assets/f0ae242d-2a91-4696-9a21-5af324971b84)
 
 
