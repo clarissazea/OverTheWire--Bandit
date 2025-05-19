@@ -195,7 +195,7 @@ nc localhost 30000
 
 3. Masukkan password level 14
 ```bash
-nc localhost 30000
+MU4VWeTyJk8ROof1qqmcBPaLh7lDCPvS
 ```
 5. Password untuk `bandit15`:
 ```bash
@@ -226,6 +226,11 @@ Perintah openssl s_client digunakan untuk membuat koneksi SSL (secure socket lay
 
 - `-connect localhost:30001`: Menghubungkan ke localhost pada port 30001
 - `-ign_eof`: Mengabaikan EOF (End of File) agar koneksi tetap terbuka meskipun input sudah selesai, mencegah error “HEARTBEATING” atau “Read R BLOCK” yang muncul saat komunikasi SSL.
+
+3. Masukkan password level 15
+```bash
+8xCjnmgoKbGLhHFAZlGE5Tmu4M2tKJQo
+```
 
 3. Password untuk `bandit16`:
 ```bash
