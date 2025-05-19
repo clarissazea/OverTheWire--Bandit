@@ -46,8 +46,8 @@ File data.txt berisi hexdump dari file asli yang telah dikompresi berulang kali.
 ssh bandit12@bandit.labs.overthewire.org -p 2220
 ```
 
-2. 
-password: FO5dwFsc0cbaIiH0h8J2eUks2vdTDwAn
+2. Membuat folder dan menyalin `data.txt` ke dalamnya
+Kita bisa menggunakan perintah mktemp -d untuk membuat folder dengan nama acak di /tmp, lalu masuk ke folder tersebut. Setelah itu, salin file data.txt dari home directory (~) ke folder tersebut menggunakan cp ~ /data.txt .. Titik (.) berarti file disalin ke direktori saat ini. Terakhir, kita rename file tersebut menggunakan mv agar lebih sesuai untuk proses berikutnya.
 
 ![image](https://github.com/user-attachments/assets/8920ba5f-5141-402b-9b94-27fd59fea8f3)
 ![image](https://github.com/user-attachments/assets/555dfca0-1991-4b16-aec9-78eafb383fe5)
@@ -73,6 +73,8 @@ password: FO5dwFsc0cbaIiH0h8J2eUks2vdTDwAn
 ![image](https://github.com/user-attachments/assets/95db42e6-ef24-4664-bc43-0074345a464f)
 ![image](https://github.com/user-attachments/assets/55fb1246-f404-4b7c-b5be-62883940e43e)
 
+
+password: FO5dwFsc0cbaIiH0h8J2eUks2vdTDwAn
 ## Level 13 --> 14
 password: sshkey
 
