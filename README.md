@@ -58,6 +58,7 @@ Kita rename file tersebut menggunakan mv agar lebih sesuai untuk proses berikutn
 ![image](https://github.com/user-attachments/assets/555dfca0-1991-4b16-aec9-78eafb383fe5)
 
 4. Mengembalikan file hasil hexdump
+   
 Namun, kami ingin beroperasi pada data yang sebenarnya. Oleh karena itu, kami kembali ke hexdump dan mendapatkan data yang sebenarnya.
 ![image](https://github.com/user-attachments/assets/e0aabfa0-a632-4672-b7ea-5ecc1c02c68f)
 - xxd: tool untuk membuat atau membalikkan hexdump.
@@ -68,8 +69,11 @@ Namun, kami ingin beroperasi pada data yang sebenarnya. Oleh karena itu, kami ke
 
 ![image](https://github.com/user-attachments/assets/e4653ab0-6103-421e-9f89-26c3c7d5519a)
 
+5. Ketika dilihat file data aslinya
 
 ![image](https://github.com/user-attachments/assets/cc0765a4-6647-4292-a367-a54500c34f6c)
+
+6. 
 ![image](https://github.com/user-attachments/assets/1437269b-e94e-4bf5-817e-ab57fb335a11)
 
 ![image](https://github.com/user-attachments/assets/f0ae242d-2a91-4696-9a21-5af324971b84)
