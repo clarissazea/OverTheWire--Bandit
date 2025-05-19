@@ -1,6 +1,22 @@
 # Write Up OverTheWire--Bandit
 
 ## Level 11 --> 12
+- Username: bandit11
+- Password (dari level sebelumnya): Diperoleh dari level 10 `(dtR173fZKb0RRsDFSGsg2RWnpNVj3qRr)`.
+- Tujuan: Mencari password untuk login ke user bandit12
+- Lokasi file: ~/data.txt
+
+
+### Langkah pengerjaan
+
+Kata sandi untuk level berikutnya disimpan dalam file data.txt, di mana semua huruf kecil (az) dan huruf besar (AZ) telah diputar sebanyak 13 posisi.
+
+File bernama data.txt dapat ditemukan di direktori home. Jika kita melihat isi file tersebut, kita akan menemukan serangkaian karakter/string kalimat acak. Pada petunjuk bandit disebutkan bahwa file data.txt berisi password untuk level berikutnya, tetapi terenkripsi menggunakan ROT13. ROT13 adalah bentuk sandi substitusi sederhana yang menggantikan setiap huruf dengan huruf ke-13 dalam alfabet (misalnya, A menjadi N, B menjadi O, dan seterusnya). Jadi, kita perlu mendekripsi isi file tersebut menggunakan metode ROT13.
+
+1. Masuk ke server sebagai `bandit11`:
+```bash
+   ssh bandit11@bandit.labs.overthewire.org -p 2220
+```
 
 password: 7x16WNeHIi5YkIhWsfFIqoognUTyj9Q4
 ![image](https://github.com/user-attachments/assets/fe95e8bc-2305-4671-b74f-2bbab0051623)
