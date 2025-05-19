@@ -47,19 +47,21 @@ ssh bandit12@bandit.labs.overthewire.org -p 2220
 ```
 
 2. Membuat folder dan menyalin `data.txt` ke dalamnya
-
-Kita bisa menggunakan perintah mktemp -d untuk membuat folder dengan nama acak di /tmp, lalu masuk ke folder tersebut. Setelah itu, salin file data.txt dari home directory (~) ke folder tersebut menggunakan `cp ~ /data.txt .` Titik (.) berarti file disalin ke direktori saat ini. Terakhir, kita rename file tersebut menggunakan mv agar lebih sesuai untuk proses berikutnya.
+```bash
+Kita bisa menggunakan perintah `mktemp -d` untuk membuat folder dengan nama acak di /tmp, lalu masuk ke folder tersebut. Setelah itu, salin file data.txt dari home directory (~) ke folder tersebut menggunakan `cp ~ /data.txt .` Titik (.) berarti file disalin ke direktori saat ini. Terakhir, kita rename file tersebut menggunakan mv agar lebih sesuai untuk proses berikutnya.
 
 ![image](https://github.com/user-attachments/assets/8920ba5f-5141-402b-9b94-27fd59fea8f3)
+```
 
 3. Rename dan lihat file
-
+```bash
 Kita rename file tersebut menggunakan mv agar lebih sesuai untuk proses berikutnya. Melihat file tersebut, kita melihat format datanya. Seperti yang dinyatakan, ini adalah hexdump. Ini terlihat seperti ini:
 ![image](https://github.com/user-attachments/assets/555dfca0-1991-4b16-aec9-78eafb383fe5)
+```
 
 4. Mengembalikan file hasil hexdump
-   
-Namun, kami ingin beroperasi pada data yang sebenarnya. Oleh karena itu, kami kembali ke hexdump dan mendapatkan data yang sebenarnya.
+```bash
+Kembali ke hexdump dan mendapatkan data yang sebenarnya (karena ingin beroperasi pada data yang sebenarnya.)
 ![image](https://github.com/user-attachments/assets/e0aabfa0-a632-4672-b7ea-5ecc1c02c68f)
 - `xxd`: tool untuk membuat atau membalikkan hexdump.
 - `-r`: reverse, artinya mengubah dari hexdump ke bentuk biner.
@@ -68,10 +70,11 @@ Namun, kami ingin beroperasi pada data yang sebenarnya. Oleh karena itu, kami ke
 - Hasilnya adalah file compressed_data, yaitu file asli dalam bentuk biner (yang telah dikompresi berulang kali) dan siap untuk tahap dekompresi.
 
 ![image](https://github.com/user-attachments/assets/e4653ab0-6103-421e-9f89-26c3c7d5519a)
+```
 
 5. Proses dekompresi bertahap dari file biner yang sebelumnya dikonversi dari hexdump
 
-- `mv compressed_data compressed_data.gz`: file compressed_data di-rename menjadi compressed_data.gz agar dikenali sebagai file gzip. Ini penting karena kita tidak tahu urutan kompresi yang dilakukan, jadi kita coba satu per satu. .gz adalah salah satu format umum kompresi.
+- `mv compressed_data compressed_data.gz`: file `compressed_data` di-rename menjadi `compressed_data.gz` agar dikenali sebagai file gzip. Ini penting karena kita tidak tahu urutan kompresi yang dilakukan, jadi kita coba satu per satu. .gz adalah salah satu format umum kompresi.
 - `gzip -d compressed_data.gz`: perintah untuk meng-unzip file `.gz`. File `compressed_data.gz` akan didekompres menjadi `compressed_data`.
 
 ![image](https://github.com/user-attachments/assets/cc0765a4-6647-4292-a367-a54500c34f6c)
@@ -85,12 +88,12 @@ Tujuannya adalah untuk mengidentifikasi format file, berdasarkan magic number (t
 
 ![image](https://github.com/user-attachments/assets/1437269b-e94e-4bf5-817e-ab57fb335a11)
 
-7. Tahap dekompresi kedua, karena file yang sebelumnya hasil dekompresi gzip ternyata berformat bzip2, dan kini telah didekompresi menjadi file baru yang siap diperiksa jenis kompresinya selanjutnya.
+7. Tahap dekompresi kedua, karena file yang sebelumnya hasil dekompresi `gzip` ternyata berformat `bzip2`, dan kini telah didekompresi menjadi file baru yang siap diperiksa jenis kompresinya selanjutnya.
 
 - `mv compressed_data compressed_data.bz2` : Mengubah nama file compressed_data menjadi compressed_data.bz2. Penambahan ekstensi `.bz2` membantu agar sistem atau perintah seperti `bzip2` mengenali dan memproses file dengan benar.
 - `bzip2 -d compressed_data.bz2` : bzip2 -d adalah perintah untuk mendekompresi file berekstensi .bz2 (mengembalikan ke bentuk aslinya).
 
-Setelah perintah ini dijalankan, file compressed_data.bz2 akan hilang dan digantikan oleh file bernama compressed_data yang telah didekompresi.
+Setelah perintah ini dijalankan, file `compressed_data.bz2` akan hilang dan digantikan oleh file bernama `compressed_data` yang telah didekompresi.
 ![image](https://github.com/user-attachments/assets/f0ae242d-2a91-4696-9a21-5af324971b84)
 
 
