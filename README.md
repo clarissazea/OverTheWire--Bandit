@@ -110,11 +110,13 @@ Setelah perintah ini dijalankan, file compressed_data.bz2 akan hilang dan digant
 
 Dengan mengekstraknya, kita melanjutkan proses membuka lapisan-lapisan kompresi sampai akhirnya menemukan password level berikutnya.
 
-11. File `data6.bin` tampaknya telah dikompresi `bzip2` lagi.
 ![image](https://github.com/user-attachments/assets/a2345821-8e73-4fcf-9660-9558af50078d)
 
-12. `data6.bin.out` menunjukkan nama file lain `data8.bin` lagi. Jadi kita mengekstrak file ini.
+11. File `data6.bin` tampaknya telah dikompresi `bzip2` lagi.
 ![image](https://github.com/user-attachments/assets/90222ece-ce83-49e9-a272-caabb64d0c51)
+
+12. `data6.bin.out` menunjukkan nama file lain `data8.bin` lagi. Jadi kita mengekstrak file ini.
+
 
 
 ![image](https://github.com/user-attachments/assets/95db42e6-ef24-4664-bc43-0074345a464f)
