@@ -141,8 +141,8 @@ FO5dwFsc0cbaIiH0h8J2eUks2vdTDwAn
 
 ## Level 13 --> 14
 - Username: bandit13
-- Password (dari level sebelumnya): Diperoleh dari level 12 (FO5dwFsc0cbaIiH0h8J2eUks2vdTDwAn)
-- Tujuan: Mencari sshkey untuk login ke user bandit14
+- Password (dari level sebelumnya): Diperoleh dari level 12 (`FO5dwFsc0cbaIiH0h8J2eUks2vdTDwAn`)
+- Tujuan: Mencari sshkey untuk login ke user `bandit14`
 - Lokasi file: sshkey.private (bukan ~/data.txt, tidak ada file tersebut di level ini)
 
 
@@ -178,8 +178,29 @@ MU4VWeTyJk8ROof1qqmcBPaLh7lDCPvS
 
 
 ## Level 14 --> 15
+- Username: bandit14
+- Password (dari level sebelumnya): Diperoleh dari level 13 (`MU4VWeTyJk8ROof1qqmcBPaLh7lDCPvS`)
+- Tujuan: Mendapatkan password untuk login ke user bandit15 dengan mengirim password level sekarang ke port tertentu
+- Lokasi file: Tidak ada file khusus, menggunakan koneksi ke port 30000 di localhost
 
-password: MU4VWeTyJk8ROof1qqmcBPaLh7lDCPvS
+1. Login ke level 14
+```bash
+ssh bandit14@bandit.labs.overthewire.org -p 2220
+```
+
+2. Gunakan netcat (nc) untuk mengirim password level 14 ke port 30000 di localhost:
+```bash
+nc localhost 30000
+```
+
+3. Masukkan password level 14
+```bash
+nc localhost 30000
+```
+5. Password untuk `bandit15`:
+```bash
+8xCjnmgoKbGLhHFAZlGE5Tmu4M2tKJQo
+```
 
 ![image](https://github.com/user-attachments/assets/a20a1a89-b0f3-40c0-b1c1-72a8db595834)
 
