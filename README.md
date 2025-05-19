@@ -33,6 +33,20 @@ cat data.txt | tr '[A-Za-z]' '[N-ZA-Mn-za-m]'
 ![image](https://github.com/user-attachments/assets/fe95e8bc-2305-4671-b74f-2bbab0051623)
 
 ## Level 12 --> 13
+- Username: bandit12
+- Password (dari level sebelumnya): Diperoleh dari level 11 `(7x16WNeHIi5YkIhWsfFIqoognUTyj9Q4)`.
+- Tujuan: Mencari password untuk login ke user bandit13
+- Lokasi file: ~/data.txt
+
+
+File data.txt berisi hexdump dari file asli yang telah dikompresi berulang kali. Tugas kita adalah memulihkan file asli tersebut, mengekstrak isinya, dan menemukan password untuk level selanjutnya. Disarankan untuk membuat direktori sementara di /tmp menggunakan mktemp -d, lalu bekerja di dalamnya.
+
+1. Masuk sebagai bandit12
+```bash
+ssh bandit12@bandit.labs.overthewire.org -p 2220
+```
+
+2. 
 password: FO5dwFsc0cbaIiH0h8J2eUks2vdTDwAn
 
 ![image](https://github.com/user-attachments/assets/8920ba5f-5141-402b-9b94-27fd59fea8f3)
