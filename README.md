@@ -140,7 +140,38 @@ FO5dwFsc0cbaIiH0h8J2eUks2vdTDwAn
 ```
 
 ## Level 13 --> 14
-password: sshkey
+- Username: bandit13
+- Password (dari level sebelumnya): Diperoleh dari level 12 (FO5dwFsc0cbaIiH0h8J2eUks2vdTDwAn)
+- Tujuan: Mencari sshkey untuk login ke user bandit14
+- Lokasi file: sshkey.private (bukan ~/data.txt, tidak ada file tersebut di level ini)
+
+
+Kata sandi untuk level ini disimpan di `/etc/bandit_pass/bandit14` dan hanya dapat dibaca oleh pengguna bandit14. Untuk level ini, kita tidak mendapatkan kata sandi berikutnya, tetapi mendapatkan kunci SSH pribadi (sshkey) yang dapat digunakan untuk masuk ke level berikutnya. 
+
+1. Login ke level 13
+```bash
+ssh bandit13@bandit.labs.overthewire.org -p 2220
+```
+
+2. Lihat isi directory
+```bash
+sshkey.private
+```
+File ini adalah kunci privat SSH untuk mengakses user bandit14.
+
+3. Gunakan kunci privat untuk login ke user bandit14 melalui localhost:
+```bash
+ssh -i sshkey.private bandit14@localhost -p 2220
+```
+4. Setelah berhasil login sebagai bandit14, tampilkan isi file password:
+```bash
+cat /etc/bandit_pass/bandit14
+```
+
+5. Password untuk `bandit14`:
+```bash
+MU4VWeTyJk8ROof1qqmcBPaLh7lDCPvS
+```
 
 ![image](https://github.com/user-attachments/assets/60ec7971-f76f-4b2f-91b3-ee95cd378e52)
 ![image](https://github.com/user-attachments/assets/1ae5eb2d-e508-4ad6-b1b8-4956960d299d)
